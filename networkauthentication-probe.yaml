@@ -1,0 +1,9 @@
+apiVersion: policy.linkerd.io/v1alpha1
+kind: NetworkAuthentication
+metadata:
+  name: authors-probe-authn
+  namespace: booksapp
+spec:
+  networks:
+    - cidr: 0.0.0.0/0
+    - cidr: ::/0

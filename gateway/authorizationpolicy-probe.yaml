@@ -1,0 +1,14 @@
+apiVersion: policy.linkerd.io/v1alpha1
+kind: AuthorizationPolicy
+metadata:
+  name: authors-probe-policy
+  namespace: booksapp
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: authors-probe-route
+  requiredAuthenticationRefs:
+    - name: authors-probe-authn
+      kind: NetworkAuthentication
+      group: policy.linkerd.io
